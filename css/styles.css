@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    background: lightblue url("../images/bg-image.jpg") no-repeat fixed center;
+    background-size: cover;
+}
+
+#main{
+    height: 100vh;
+    margin:auto;
+    padding: 10px 60px;
+    color: #fff;
+}
+#spinner-area{
+    display: none;
+}
+#spinner-area img{
+    width: 40px;
+}
+
