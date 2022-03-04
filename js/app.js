@@ -13,6 +13,11 @@ const hideSpinner = ()=>{
     data.style.display = 'block';
 }
 
+const addInnerText = (id, value) =>{
+    const modalTitle =document.getElementById(id);
+        modalTitle.innerHTML = value;
+}
+
 // Global Variables
 const notificaiton = document.getElementById('notifcation');
 const dataArea = document.getElementById('data')
@@ -50,19 +55,17 @@ const displayWeather = data =>{
         notificaiton.innerHTML = `<p class="text-success">Great! Check the details below.</p>`;
         const weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         dataArea.textContent = '';
-        dataArea.innerHTML= `
+        dataArea.innerHTML= `        
         <img src="${weatherIcon}" alt="Weather Icon">
-        <h2>${data.name}</h2>
-        <h5>${data.main.temp}°C</h5>
+        <h2 class="text-primary">${data.name}, ${data.sys.country}</h2>
+        <h5 class ="text-danger">${data.main.temp}°C</h5>
+        <p><span>Min. Temp: </span>${data.main.temp_min}°C - <span>Max. Temp: </span>${data.main.temp_max}°C</p>
         <p>${data.weather[0].main} 
         <small>(${data.weather[0].description})</small></p>
-        <!-- Show more modal button -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">More Details
-        </button>
         `;        
         
-        const modalTitle =document.getElementById('modal-title');
-        modalTitle.innerHTML = `Temparature Details of ${data.name}`;
+        addInnerText('modal-title', `Temparature Details of ${data.name}`)
+        console.log(data);
         hideSpinner();
     }
      
